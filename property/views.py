@@ -24,6 +24,10 @@ def property_grid(request,**kwargs):
         'category' : category.objects.all()
     }
     return render(request , 'property/property-grid.html', context=context)
-def property_single(request , id):
+def property_single(request ):
+    context={
+        'category': category .objects.all(),
+        'property': property.objects.filter(status=True),  
+    }
     
-    return render(request , 'property/property-single.html' )
+    return render(request , 'property/property-single.html',context=context )
